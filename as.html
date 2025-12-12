@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ادخل المكان | H-Coding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg:#0d0e25;
+            --glass: rgba(13,14,37,0.85);
+            --gradient: linear-gradient(90deg,#ff9966 0%,#ff5e62 100%);
+            --muted:#cfcfcf;
+        }
+        *{box-sizing:border-box;margin:0;padding:0;font-family:'Cairo',sans-serif}
+        html,body{height:100%}
+        body{
+            background: radial-gradient(1200px 600px at 85% 15%, rgba(255,126,95,0.12), transparent),
+                        radial-gradient(900px 400px at 10% 80%, rgba(95,126,255,0.03), transparent),
+                        var(--bg);
+            color:#fff;overflow-y:auto;
+        }
+        nav{
+            position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;
+            padding:14px 40px;background:var(--glass);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.04);z-index:50
+        }
+        .logo{font-weight:900;font-size:20px;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
+        .container{
+            min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 20px 40px;
+        }
+        .card{
+            width:100%;max-width:640px;display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(255,255,255,0.06);padding:36px;border-radius:18px;backdrop-filter: blur(6px);
+        }
+        .title{font-size:22px;font-weight:800}
+        .desc{color:var(--muted);margin-bottom:8px}
+        .btn-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:12px;width:100%}
+        .enter-btn{
+            padding:12px 20px;border-radius:12px;border:none;background:var(--gradient);
+            font-weight:900;cursor:pointer;box-shadow:0 10px 30px rgba(255,94,98,0.18);color:#fff;font-size:16px;text-decoration:none;
+        }
+        /* زر ثانوي (مظهر مختلف) */
+        .secondary{
+            background: transparent;border:1px solid rgba(255,255,255,0.08);box-shadow:none;
+        }
+        @media (max-width:480px){
+            .logo{font-size:18px}
+            .btn-row{flex-direction:column;gap:10px}
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="logo">HCODING</div>
+    <div style="color:var(--muted);font-weight:700">مرحباً</div>
+</nav>
+
+<main class="container">
+    <div class="card" role="main" aria-labelledby="mainTitle">
+        <div class="title" id="mainTitle">اختر المكان</div>
+        <div class="desc">اضغط أحد الأزرار للانتقال مباشرة.</div>
+
+        <div class="btn-row" role="group" aria-label="روابط الموقع">
+            <button class="enter-btn" id="mainBtn" aria-label="الموقع الرئيسي">الموقع الرئيسي</button>
+            <button class="enter-btn secondary" id="chatBtn" aria-label="Chat Qwen">Chat Qwen</button>
+        </div>
+    </div>
+</main>
+
+<script>
+    // استبدل هنا بالروابط التي تريدها:
+    const destinationMain = 'https://example.com/your-main-site';
+    const destinationChatQwen = 'https://example.com/chat-qwen';
+
+    // اختيار السلوك: افتح في نفس النافذة أم نافذة جديدة؟
+    // غير القيمة إلى true لفتح Chat Qwen في تبويب جديد:
+    const openChatInNewTab = false;
+
+    document.getElementById('mainBtn').addEventListener('click', function() {
+        window.location.href = destinationMain;
+    });
+
+    document.getElementById('chatBtn').addEventListener('click', function() {
+        if(openChatInNewTab) {
+            window.open(destinationChatQwen, '_blank', 'noopener');
+        } else {
+            window.location.href = destinationChatQwen;
+        }
+    });
+</script>
+</body>
+</html>

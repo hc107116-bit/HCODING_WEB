@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنجازات h.coding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* إعدادات عامة */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #050505; /* أسود عميق */
+            color: #ffffff;
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* شريط الإعلانات العلوي */
+        .ads-banner {
+            background: linear-gradient(90deg, #1a1a1a, #000);
+            border-bottom: 2px solid #ff4500;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            color: #ffcc00;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.3);
+        }
+
+        /* التخطيط الرئيسي للصفحة */
+        .container {
+            display: flex;
+            min-height: 100vh;
+            flex-wrap: wrap;
+        }
+
+        /* الأعمدة الجانبية (أدوات الذكاء الاصطناعي) */
+        .sidebar {
+            flex: 1;
+            min-width: 200px;
+            background-color: #0a0a0a;
+            padding: 20px;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sidebar h3 {
+            color: #ff4500; /* برتقالي محمر */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .ai-tool {
+            background: #111;
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-tool::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff0000, #ffa500);
+        }
+
+        .ai-tool:hover {
+            background: #1a1a1a;
+            transform: translateX(-5px);
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+        }
+
+        /* المحتوى الرئيسي في المنتصف */
+        .main-content {
+            flex: 3;
+            padding: 40px;
+            position: relative;
+        }
+
+        .hero-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            background: -webkit-linear-gradient(#ff0000, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        /* تصميم البطاقات للإنجازات */
+        .achievement-section {
+            display: grid;
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 2px solid transparent;
+            border-image: linear-gradient(to right, #ff0000, #ffa500) 1;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(255, 69, 0, 0.2);
+        }
+
+        .card h2 {
+            color: #ffa500;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-right: 20px;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: '➤';
+            color: #ff0000;
+            position: absolute;
+            right: -20px;
+            font-size: 0.8rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            border: 1px solid #555;
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                order: 2; /* نقل القوائم الجانبية لأسفل في الموبايل */
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .main-content {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="ads-banner">
+        📢 مساحة إعلانية مميزة - أعلن عن منتجك هنا للوصول إلى جمهور التقنية
+    </header>
+
+    <div class="container">
+        
+        <aside class="sidebar">
+            <h3>⚡ أدوات AI متقدمة</h3>
+            <div class="ai-tool">تحليل البيانات الضخمة</div>
+            <div class="ai-tool">مولد الأكواد البرمجية</div>
+            <div class="ai-tool">معالجة اللغات الطبيعية (NLP)</div>
+            <div class="ai-tool">رؤية الحاسوب (CV)</div>
+            <div class="ai-tool">أتمتة المهام</div>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="hero-title">🚀 إنجازات شركة h.coding</h1>
+
+            <div class="achievement-section">
+                
+                <div class="card">
+                    <h2>🧠 إطلاق ReffidGPT</h2>
+                    <p>منصة ذكاء اصطناعي شاملة للصور، الرسومات، الفيديوهات، تحليل المحتوى، والكتابة.</p>
+                    <br>
+                    <ul>
+                        <li>يحتوي على API مجاني للمطورين.</li>
+                        <li><strong>تطوير Web UI احترافي:</strong> بدعم Gradio وزيادة سرعة + تحسين الأداء بنسبة 55%.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>🤖 ابتكار الموديل الخاص: ReffidGPT-1.0-speedTrubo</h2>
+                    <p>مبني على دمج منهجي ذكي بين:</p>
+                    <div style="margin-top: 10px;">
+                        <span class="tag">ChatGPT</span>
+                        <span class="tag">Gemini</span>
+                        <span class="tag">أفكار h.coding الخاصة</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>💻 برمجيات متقدمة</h2>
+                    <ul>
+                        <li><strong>برنامج ASI:</strong> محرّك نصوص وأكواد أقوى من ReffidGPT في البرمجة والتحليل.</li>
+                        <li><strong>تطبيق CraftingAI:</strong> لتحويل النصوص إلى صور بنظام نقاط ذكي وإعلانات قصيرة، مبني باستخدام Janus Pro 7B.</li>
+                        <li><strong>بناء موقع "محرر كوم":</strong> منصة تحرير متكاملة.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>🔧 الروبوتات والشبكات العصبية</h2>
+                    <p><strong>قسم الروبوتات:</strong></p>
+                    <ul>
+                        <li>روبوت الطقس RoW.Tech 3.5</li>
+                        <li>مشروع AI RoboAssistant</li>
+                        <li>تأسيس خط إنتاج Robo.Tech</li>
+                    </ul>
+                    <hr style="border-color: #333; margin: 10px 0;">
+                    <p><strong>تطوير نظام شبكات عصبية:</strong></p>
+                    <ul>
+                        <li>العمل على TensorFlow و PyTorch.</li>
+                        <li>بناء أنظمة Open Source.</li>
+                        <li>دمج أدوات ذكاء اصطناعي قوية جداً.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>📡 مشاريع Arduino والحماية الرقمية</h2>
+                    <p><strong>مشاريع Arduino الرسمية:</strong></p>
+                    <ul>
+                        <li>سيارة ذكية.</li>
+                        <li>مساعد صوتي منزلي.</li>
+                        <li>نظّارة للمكفوفين (رؤية حاسوبية وتحليل ذكي).</li>
+                    </ul>
+                    <br>
+                    <p><strong>أعمال الحماية الرقمية:</strong></p>
+                    <ul>
+                        <li>حماية من المواقع الضارة.</li>
+                        <li>وقف المحتوى غير المناسب وتطوير أدوات تقنية شخصية.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <h3>🔮 أدوات المستقبل</h3>
+            <div class="ai-tool">تحسين الصور تلقائياً</div>
+            <div class="ai-tool">التنبؤ بالتقس (AI)</div>
+            <div class="ai-tool">الأمن السيبراني الذكي</div>
+            <div class="ai-tool">Neural Network Visualizer</div>
+            <div class="ai-tool">ChatBot للأعمال</div>
+        </aside>
+
+    </div>
+
+</body>
+</html>

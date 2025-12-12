@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H-Coding | حلول الويب والذكاء الاصطناعي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* إعدادات عامة */
+        :root {
+            --bg-color: #0d0e25; /* لون الخلفية الداكن من اللوجو */
+            --primary-gradient: linear-gradient(90deg, #ff9966 0%, #ff5e62 100%); /* تدرج البرتقالي للوردي */
+            --text-color: #ffffff;
+            --glass-bg: rgba(13, 14, 37, 0.85);
+            --accent-color: #ff7e5f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: white; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* الناف بار (Navbar) */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            right: 0;
+            background: var(--primary-gradient);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            padding: 10px 25px;
+            background: var(--primary-gradient);
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 94, 98, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 94, 98, 0.6);
+        }
+
+        /* الهيرو سكشن (Hero Section) */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--accent-color);
+            filter: blur(150px);
+            opacity: 0.2;
+            top: 20%;
+            right: 10%;
+            z-index: -1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* سكشن الإحصائيات/الانجازات */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 50px 20px;
+            background: rgba(255,255,255,0.03);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        /* سكشن الانجازات (Portfolio) */
+        .portfolio {
+            padding: 80px 50px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            text-align: right;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .card h4 { margin-bottom: 10px; font-size: 1.4rem; }
+        .card p { color: #aaa; font-size: 0.9rem; margin-bottom: 15px;}
+
+        /* الفوتر (Footer) */
+        footer {
+            background: #050614;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            color: #ddd;
+        }
+
+        .contact-info span {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* للتجاوب مع الموبايل */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* يمكن إضافة قائمة هامبرجر هنا لاحقاً */
+            .hero-content h1 { font-size: 2.5rem; }
+            nav { padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">HCODING</div>
+        <ul class="nav-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="https://mohrr.netlify.app/massege">تواصل معنا</a></li>
+            <li><a href="amalna.html">أعمالنا</a></li>
+            <li><a href="#team">فريقنا</a></li>
+        </ul>
+        <a href="https://silent-bee-92.convex.app/" class="cta-btn"> تسجيل دخول</a>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            <h1> نحول الأفكار إلى حقيقه<br> <span>مواقع ذكية وأدوات AI</span></h1>
+            <p>حول خيالك ليه حقيقه مع شركت Hcoding</p>
+            <a href="https://silent-bee-92.convex.app/" class="cta-btn" style="padding: 15px 40px; font-size: 1.1rem;">ابدأ مشروعك الآن</a>
+        </div>
+    </header>
+
+    <div class="stats">
+        <div class="stat-item">
+            <h3>+50</h3>
+            <p>موقع إلكتروني</p>
+        </div>
+        <div class="stat-item">
+            <h3>+10</h3>
+            <p>أدوات AI خاصة</p>
+        </div>
+        <div class="stat-item">
+            <h3>%100</h3>
+            <p>رضاء العملاء</p>
+        </div>
+    </div>
+
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">أهم إنجازاتنا</h2>
+        <div class="grid">
+            <div class="card">
+                <h4>منصة التعليم الذكي</h4>
+                <p>موقع تعليمي يستخدم AI لتحليل أداء الطلاب وتخصيص المناهج.</p>
+                <a href="#" style="color: var(--accent-color); font-size: 0.9rem;">زيارة الموقع &larr;</a>
+            </div>
+            <div class="card">
+                <h4>متجر إلكتروني متكامل</h4>
+                <p>تصميم متجر حديث مع نظام دفع إلكتروني وربط مخزني.</p>
+                <a href="#" style="color: var(--accent-color); font-size: 0.9rem;">زيارة الموقع &larr;</a>
+            </div>
+            <div class="card">
+                <h4>أداة تحليل البيانات</h4>
+                <p>داشبورد للشركات تعتمد على الذكاء الاصطناعي للتنبؤ بالمبيعات.</p>
+                <a href="#" style="color: var(--accent-color); font-size: 0.9rem;">زيارة الموقع &larr;</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="logo">HCODING</div>
+            <div class="contact-info">
+                <p><span>البريد الإلكتروني:</span> info@hcoding.com</p>
+                <p><span>الهاتف:</span> +20 10X XXX XXXX</p>
+                <p><span>العنوان:</span> القاهرة، مصر</p>
+            </div>
+            <p style="font-size: 0.8rem; color: #555; margin-top: 20px;">جميع الحقوق محفوظة © 2024 H-Coding Parent Company</p>
+        </div>
+    </footer>
+
+</body>
+</html>
