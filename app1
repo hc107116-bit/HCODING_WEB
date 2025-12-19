@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مصحف — تطبيق قرآن مفتوح المصدر</title>
+  <meta name="description" content="مصحف هو تطبيق قرآن كريم مفتوح المصدر — قراءة، استماع، وبحث بواجهة بسيطة." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121a2f;
+      --card:#0f1730;
+      --accent:#c9a24d;
+      --text:#f5f7fb;
+      --muted:#aab0c0;
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Cairo',system-ui,sans-serif;
+      background:radial-gradient(1200px 600px at 80% -10%, #1a2450 0%, transparent 60%), var(--bg);
+      color:var(--text);
+      line-height:1.8;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    header{
+      max-width:1100px;
+      margin:auto;
+      padding:40px 20px 10px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:28px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: auto 1fr;
+      gap:24px;
+      align-items:center;
+      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-radius:var(--radius);
+      padding:28px;
+    }
+
+    .icon{
+      width:96px;height:96px;
+      border-radius:24px;
+      background:#fff1;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .icon img{width:100%;height:100%;object-fit:cover}
+
+    .hero h1{
+      margin:0 0 6px;
+      font-size:32px;
+      font-weight:700;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      max-width:700px;
+    }
+
+    .buttons{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .btn{
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid transparent;
+      transition:.25s;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg, #e0bb5c, #b38a2f);
+      color:#1b1400;
+    }
+
+    .btn.secondary{
+      border-color:#ffffff22;
+      background:#ffffff08;
+      color:var(--text);
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+
+    main{
+      max-width:1100px;
+      margin:auto;
+      padding:20px;
+      display:grid;
+      gap:40px;
+    }
+
+    .section-title{
+      font-size:26px;
+      margin:0 0 12px;
+      font-weight:700;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+    }
+
+    .feature{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+    }
+
+    .feature h3{margin:0 0 8px;font-size:18px}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    .screenshots{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+    }
+
+    .shot{
+      background:#000;
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid #ffffff18;
+    }
+
+    .shot img{width:100%;display:block}
+
+    footer{
+      margin-top:40px;
+      padding:30px 20px;
+      text-align:center;
+      color:var(--muted);
+      border-top:1px solid #ffffff14;
+    }
+
+    @media (max-width:600px){
+      .hero{grid-template-columns:1fr;text-align:center}
+      .buttons{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <div class="icon">
+      <!-- ضع هنا أيقونة التطبيق -->
+      <img src="icon.png" alt="Mushaf App Icon" />
+    </div>
+    <div>
+      <h1>مصحف</h1>
+      <p>
+        تطبيق قرآن كريم مفتوح المصدر يهدف لتقديم تجربة قراءة واستماع بسيطة،
+        سريعة، ومحترمة للنص القرآني بدون إعلانات.
+      </p>
+
+      <div class="buttons">
+        <!-- رابط تحميل التطبيق -->
+        <a class="btn primary" href="https://www.mediafire.com/file/fylur0cx52f6d9o/app.apk/file" target="_blank">⬇ تحميل APK</a>
+        <!-- رابط GitHub -->
+        <a class="btn secondary" href="https://github.com/hc107116-bit/-" target="_blank">💻 الكود المصدري (GitHub)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <h2 class="section-title">✨ مميزات التطبيق</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>📖 قراءة مريحة</h3>
+        <p>واجهة تشبه المصحف الورقي مع خطوط واضحة ودعم الوضع الليلي.</p>
+      </div>
+      <div class="feature">
+        <h3>🔊 استماع للقرآن</h3>
+        <p>تشغيل صوتي للسور بجودة عالية من مصادر موثوقة.</p>
+      </div>
+      <div class="feature">
+        <h3>🔍 بحث ذكي</h3>
+        <p>البحث في السور والآيات بسرعة وسهولة.</p>
+      </div>
+      <div class="feature">
+        <h3>🧩 مفتوح المصدر</h3>
+        <p>الكود متاح للجميع على GitHub للمراجعة والتطوير.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">📱 لقطات من التطبيق</h2>
+    <div class="screenshots">
+      <!-- ضع هنا 3 صور للتطبيق -->
+      <div class="shot"><img src="1.jpeg" alt="Screenshot 1"></div>
+      <div class="shot"><img src="2.jpeg" alt="Screenshot 2"></div>
+      <div class="shot"><img src="3.jpeg" alt="Screenshot 3"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 — تطبيق مصحف | مشروع مفتوح المصدر</p>
+</footer>
+
+</body>
+</html>
